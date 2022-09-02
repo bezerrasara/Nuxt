@@ -1,0 +1,30 @@
+[
+  {
+    "name": "fotos",
+    "path": "/fotos",
+    "component": "/home/brisanet/Nuxt/pages/fotos.vue",
+    "chunkName": "pages/fotos",
+    "_name": "_14785572"
+  },
+  {
+    "name": "modal",
+    "path": "/modal",
+    "component": "/home/brisanet/Nuxt/pages/modal.vue",
+    "chunkName": "pages/modal",
+    "_name": "_88a5a5a0"
+  },
+  {
+    "name": "postagens",
+    "path": "/postagens",
+    "component": "/home/brisanet/Nuxt/pages/postagens.vue",
+    "chunkName": "pages/postagens",
+    "_name": "_74285fe7"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/brisanet/Nuxt/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_0a36c0d5"
+  }
+]

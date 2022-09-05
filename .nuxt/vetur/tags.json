@@ -1,5 +1,11 @@
 {
   "Paginations": {
     "description": "Auto imported from components/Paginations.vue"
+  },
+  "ModalsModal": {
+    "description": "Auto imported from components/modals/modal.vue"
+  },
+  "ModalsModalFotos": {
+    "description": "Auto imported from components/modals/modalFotos.vue"
   }
 }

@@ -1,27 +1,19 @@
 <template>
-    <div class="text-center">
-      <v-pagination
-      
-        v-model="page"
-        :length="10"
-        :post="post"
+  <div class="text-center">
+    <v-pagination
+      v-model="page"
+      :length="5">
+  </v-pagination>
 
-        
-      ></v-pagination>
-    </div>
-  </template>
-  
-  <script>
-    export default {
-        props: ['post'],
-      data () {
-        return {
-            
+  </div>
+</template>
+<script>
+  export default {
+    data () {
+      return {
         page: 1,
-        // totalPages: 0,
-        // pageSize: 3,
-
-        }
-      },
-    }
-  </script>
+        
+      }
+    },
+  }
+</script>

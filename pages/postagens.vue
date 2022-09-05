@@ -3,38 +3,49 @@
 <template>
   
     <div>
+      
       <div 
         class="border-b border-gray-400 py-4s"
         v-for="post in posts" 
         :key="post.id"
         >
-      
-    
-  <v-card
-      max-width="800"
-    class="mx-auto"
-  >
-  <v-card-title class="pb-0">
-      <p class="text-h5 text-blue">{{ post.title}}</p>
+      <v-card>
+      <!-- <v-card color="grey darken-4" class="white--text"> -->
+            <v-card-title primary-title>
+                <div>
+      <p class="text-h5 text-blue">{{ post.title}}</p></div>
     </v-card-title> 
 
     <modal 
     :post="post" />
   </v-card>
+  
+    <v-divider>
+
+    </v-divider>
+  
       </div>
-      <paginations />
+      
+
+      <!-- {{totalPaginas()}} -->
+      
+      
     </div>
+    
   </template>
   
 
   <script>
-import Paginations from '../components/Paginations.vue'
-import modal from './modal.vue'
+
+import modal from '../components/modals/modal.vue'
+import { match } from 'assert'
   export default {
-  components: { modal, Paginations },
-   
-    data: () => ({
+  components: { modal}, //
+  data: () => ({
       dialog: false,
+      elementosPorPagina: 10,
+      dadosPaginados: []
+
       
     }),
 
@@ -45,8 +56,20 @@ import modal from './modal.vue'
       posts,
     }
   },
+  methods: {
+    totalPaginas(){
+      return match.ceil(this.posts.length / this.elementosPorPagina)
+    
+    },
+    getDadosPagina(noPagina) {
+      this.dadosPaginados=[];
+      let ini = (noPagina*this.elementosPorPagina) - this.elementosPorPagina;
+      let fin = (noPagina * this.elementosPorPagina);
+      this.dadosPaginados = this.posts.slice(ini, fin);
+    }
   }
-  
+  }
+   
   
   </script>
   

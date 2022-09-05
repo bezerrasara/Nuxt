@@ -2,13 +2,27 @@
   
   <v-app dark>
     <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
-      <v-list>
+    v-model="drawer"
+  app>
+  
+     <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="text-h6">
+              Postagens e fotos
+            </v-list-item-title>
+
+            <v-list-item-subtitle>
+              Lista de Postagens
+            </v-list-item-subtitle>
+
+          </v-list-item-content>
+        </v-list-item>
+      <v-divider></v-divider>
+
+      <v-list
+      dense
+      nav>
+
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
@@ -26,37 +40,25 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
+      
       :clipped-left="clipped"
       fixed
       app
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
       
+      
+      <v-app-bar-title>Aplication</v-app-bar-title>
+   
+    <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>mdi-search</v-icon>
+      </v-btn>
     </v-app-bar>
+    
     <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
+      <paginations /> 
+      <Nuxt />
     </v-main>
     
     <v-footer
@@ -69,7 +71,9 @@
 </template>
 
 <script>
+import Paginations from '../components/Paginations.vue'
 export default {
+  components: { Paginations },
   name: 'DefaultLayout',
   data () {
     return {
@@ -79,12 +83,12 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'postagens',
-          to: '/postagens'
+          title: 'Postagens',
+          to: '/'
         },
         {
           icon: 'mdi-image',
-          title: 'fotos',
+          title: 'Fotos',
           to: '/fotos'
         }
       ],

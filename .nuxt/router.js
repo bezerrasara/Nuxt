@@ -5,9 +5,7 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _14785572 = () => interopDefault(import('../pages/fotos.vue' /* webpackChunkName: "pages/fotos" */))
-const _88a5a5a0 = () => interopDefault(import('../pages/modal.vue' /* webpackChunkName: "pages/modal" */))
 const _74285fe7 = () => interopDefault(import('../pages/postagens.vue' /* webpackChunkName: "pages/postagens" */))
-const _0a36c0d5 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -25,17 +23,9 @@ export const routerOptions = {
     component: _14785572,
     name: "fotos"
   }, {
-    path: "/modal",
-    component: _88a5a5a0,
-    name: "modal"
-  }, {
-    path: "/postagens",
+    path: "/",
     component: _74285fe7,
     name: "postagens"
-  }, {
-    path: "/",
-    component: _0a36c0d5,
-    name: "index"
   }],
 
   fallback: false

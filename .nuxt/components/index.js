@@ -1,4 +1,6 @@
 export { default as Paginations } from '../../components/Paginations.vue'
+export { default as ModalsModal } from '../../components/modals/modal.vue'
+export { default as ModalsModalFotos } from '../../components/modals/modalFotos.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

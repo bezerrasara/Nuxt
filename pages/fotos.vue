@@ -39,7 +39,7 @@ export default {
         show: false,
     }),
     async asyncData({ $axios }) {
-        const photos = await $axios.$get("https://jsonplaceholder.typicode.com/photos?_limit=10");
+        const photos = await $axios.$get("https://jsonplaceholder.typicode.com/photos?_limit=50");
         return {
             photos,
         };  

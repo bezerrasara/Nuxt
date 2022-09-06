@@ -56,8 +56,7 @@
       </v-btn>
     </v-app-bar>
     
-    <v-main>
-      <paginations /> 
+    <v-main> 
       <Nuxt />
     </v-main>
     
@@ -71,9 +70,9 @@
 </template>
 
 <script>
-import Paginations from '../components/Paginations.vue'
+
 export default {
-  components: { Paginations },
+  
   name: 'DefaultLayout',
   data () {
     return {

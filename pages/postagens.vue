@@ -1,46 +1,70 @@
 <template>
     <div> 
-      <div class="text-center"
+      <div class="grey lighten-5"
   >
-
-     <v-pagination
+    <v-col cols="12" sm="12">
+      <v-row>
+        <v-col cols="4" sm="3">
+          <v-select
+            v-model="perPage"
+            :items="pageSizes"
+            label="Items per Page"
+            @change="handlePageSizeChange"
+          ></v-select>
+        </v-col>
+        <v-col cols="12" sm="9">
+          
+          <v-pagination
+     
       v-model="page"
       :length="totalPaginas()"
-      total-visible="10"
+      
       >
-        <li
-       v-for="(p, index) in paginatedData()" 
-      :key="index">
     
-    
-    </li>  
-    
-        
   </v-pagination>
+        </v-col>
+      </v-row>
+    </v-col>
+    
+  
  
+  {{ visiblePages }}
   </div>
-      <div 
-        class="border-b border-gray-400 py-4s"
-        v-for="post in posts" 
-        :key="post.id"
+      <v-container fluid class="grey lighten-5"        
         >
+        <v-row dense>
+      <v-col
+      v-for="post in dadosPaginados" 
+        :key="post.id"
+       
+        cols="12"
+      >
 
-    <v-card>
+        <v-card
+          class="pa-2"
+          outlined
+          tile
+          color=""
+          
+        >      
       <!-- <v-card color="grey darken-4" class="white--text"> -->
-    <v-card-title primary-title>
-      <div>
+    <v-card-title class="text-h5">
+      
         <p class="text-h5 text-blue">{{ post.title}}</p>
-      </div>
+      
     </v-card-title> 
 
     <modal 
     :post="post" />
     </v-card>
-    
+  </v-col>
+  
+    </v-row>
     <v-divider>
     </v-divider>
-      </div> 
-    </div>
+      
+    </v-container>
+  </div> 
 </template>
   
 <script>
@@ -52,13 +76,13 @@ import modal from '../components/modals/modal.vue'
     
   components: { modal},
   data: () => ({
+
       page: 1,
-      dadosPaginados: [], //tutorials
-      elementosporpagina: 20, //pagesize
-      pageCount: 0, //totalpages
+      dadosPaginados: [], 
+      perPage: 14, 
+      pageSizes: [1,2,3,4,5, 6, 7, 8, 9, 10],
+      
       dialog: false,
-      
-      
       
     }),
 
@@ -67,30 +91,26 @@ import modal from '../components/modals/modal.vue'
   const posts = await $axios.$get('https://jsonplaceholder.typicode.com/posts') //?_limit=10
     return { 
       posts,
-      
-      
     }
     
   }, 
+  computed: {
+    visiblePages () {
+      this.dadosPaginados = this.posts.slice((this.page * this.perPage)-this.perPage, this.page* this.perPage)
+    }
+  },
   
    methods: {
     totalPaginas(){
-      return Math.ceil(this.posts.length / this.elementosporpagina)
+      
+      return Math.ceil(this.posts.length / this.perPage)
     
     }, 
-    paginatedData(){ 
-      this.dadosPaginados= [];
-      // let ini = (noPagina * this.elementosporpagina) - this.elementosporpagina;
-      // let fin = (noPagina * this.elementosporpagina);
-      const ini = this.page * this.elementosporpagina, 
-       fin = ini + this.elementosporpagina;
-      this.dadosPaginados = this.posts.slice(ini, fin);
-      //console.log(this.dadosPaginados)
-
-    // const start = this.page * this.elementosporpagina, 
-    //       end = start + this.elementosporpagina;
-    //  return this.posts.slice(start, end); 
-}
+    handlePageSizeChange(size) {
+      this.perPage = size;
+      this.page = 1;
+      this.visiblePages;
+    },
 
     }
   }

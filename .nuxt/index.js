@@ -16,8 +16,6 @@ import nuxt_plugin_plugin_6257b6da from 'nuxt_plugin_plugin_6257b6da' // Source:
 import nuxt_plugin_plugin_1d98a03b from 'nuxt_plugin_plugin_1d98a03b' // Source: ./vuetify/plugin.js (mode: 'all')
 import nuxt_plugin_axios_939b57ae from 'nuxt_plugin_axios_939b57ae' // Source: ./axios.js (mode: 'all')
 
-
-
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
 

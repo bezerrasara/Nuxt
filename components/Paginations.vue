@@ -1,19 +1,13 @@
 <template>
   <div class="text-center"
   >
-     <v-pagination
+  <v-pagination
       v-model="page"
       :length="5"
       :total-visible="10"
-      
        >
-       <!-- @nextPage="pageChangeHandle('next')"
-      @previousPage="pageChangeHandle ('anterior')" 
-      @loadPage="pageChangeHandle"  -->
-    
-      
-      
-    </v-pagination >
+
+  </v-pagination >
     
     
   </div>

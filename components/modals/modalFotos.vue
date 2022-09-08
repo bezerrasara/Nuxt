@@ -22,7 +22,7 @@
           </v-card-title>
 
           <v-img
-                  :src="`photo.url`"
+                  :src="`${photo.url}`"
                   aspect-ratio="1"
                   
                 >

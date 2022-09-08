@@ -3,10 +3,11 @@
   <v-app dark>
     <v-navigation-drawer
     v-model="drawer"
-  app>
+  app
   
-     <v-list-item>
-          <v-list-item-content>
+  >
+     <v-list-item  >
+          <v-list-item-content >
             <v-list-item-title class="text-h6">
               Postagens e fotos
             </v-list-item-title>
@@ -39,7 +40,9 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+    
     <v-app-bar
+      
       
       :clipped-left="clipped"
       fixed
@@ -51,12 +54,13 @@
       <v-app-bar-title>Aplication</v-app-bar-title>
    
     <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-search</v-icon>
+    <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
       </v-btn>
     </v-app-bar>
     
     <v-main> 
+      
       <Nuxt />
     </v-main>
     

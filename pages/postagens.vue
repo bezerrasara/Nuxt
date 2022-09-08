@@ -2,17 +2,18 @@
   <div>
     <div class="grey lighten-5">
 
-      <v-col cols="12" sm="12">
-        <v-row>
-          <v-col cols="4" sm="3">
-            <v-select v-model="perPage" :items="pageSizes" label="Items per Page" @change="handlePageSizeChange">
-            </v-select>
-          </v-col>
+      
           <v-col cols="12" sm="9">
 
             <v-pagination v-model="page" :length="totalPaginas()">
 
             </v-pagination>
+          </v-col>
+          <v-col cols="12" sm="12">
+        <v-row>
+          <v-col cols="4" sm="3">
+            <v-select v-model="perPage" :items="pageSizes" label="Items per Page" @change="handlePageSizeChange">
+            </v-select>
           </v-col>
         </v-row>
       </v-col>
@@ -28,13 +29,9 @@
         </v-col>
         <v-col v-for="post in dadosPaginados" :key="post.id" cols="12">
           <v-card class="pa-2" outlined tile color="">
-
             <v-card-title class="text-h5">
-
               <p>{{ post.title}}</p>
-
             </v-card-title>
-
             <modal :post="post" />
           </v-card>
         </v-col>
@@ -75,8 +72,8 @@ export default {
 
       return this.searchTitle(
         this.search,
-        // this.page,
-        // this.perPage
+        this.page,
+        this.perPage
 
       );
 
@@ -91,14 +88,16 @@ export default {
     },
     handlePageSizeChange(size) {
       this.perPage = size;
-      // this.page = 1;
-      // this.visiblePages;
+      this.page = 1;
+      this.visiblePages;
 
     },
 
     searchTitle(search, page, perPage) {
       if (search) {
-        this.posts = this.posts.filter(post => {
+        this.page = page,
+        this.perPage = perPage,
+        this.dadosPaginados = this.dadosPaginados.filter(post => {
           return Object.values(post)
             .join(",")
             .toLowerCase()
@@ -113,12 +112,16 @@ export default {
 </script>
   
 <style>
-.v-card--show {
-  bottom: 0;
-  opacity: 1 !important;
-  position: absolute;
-  width: 100%;
+.v-card {
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  max-width: 850px;
 }
+.v-col {
+  margin: auto;
+}
+
 </style>
   
   

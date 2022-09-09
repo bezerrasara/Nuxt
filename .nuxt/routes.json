@@ -2,13 +2,15 @@
   {
     "name": "fotos",
     "path": "/fotos",
-    "component": "/home/brisanet/Nuxt/pages/fotos.vue",
-    "chunkName": "pages/fotos"
+    "component": "/home/brisanet/Nuxt/pages/fotos/index.vue",
+    "chunkName": "pages/fotos/index",
+    "_name": "_23110316"
   },
   {
     "name": "postagens",
     "path": "/postagens",
-    "component": "/home/brisanet/Nuxt/pages/postagens.vue",
-    "chunkName": "pages/postagens"
+    "component": "/home/brisanet/Nuxt/pages/postagens/index.vue",
+    "chunkName": "pages/postagens/index",
+    "_name": "_149dc5ac"
   }
 ]

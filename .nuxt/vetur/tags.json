@@ -2,6 +2,12 @@
   "Paginations": {
     "description": "Auto imported from components/Paginations.vue"
   },
+  "Photos": {
+    "description": "Auto imported from components/photos.vue"
+  },
+  "Posts": {
+    "description": "Auto imported from components/posts.vue"
+  },
   "ModalsModal": {
     "description": "Auto imported from components/modals/modal.vue"
   },

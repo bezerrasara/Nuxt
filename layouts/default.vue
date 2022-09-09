@@ -1,8 +1,23 @@
 <template>
 
-  <v-app dark>
-    <v-navigation-drawer v-model="drawer" app>
-      <v-list-item>
+  <v-app >
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      bottom
+      
+      temporary
+    >
+      <v-list
+        nav
+        dense
+      >
+        <v-list-item-group
+          v-model="group"
+          active-class="deep-purple--text text--accent-4"
+        >
+      <v-list-item 
+      >
         <v-list-item-content>
           <v-list-item-title class="text-h6">
             Postagens e fotos
@@ -27,9 +42,14 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+    </v-list-item-group>
+      </v-list>
     </v-navigation-drawer>
-
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-system-bar color="deep-purple darken-3"></v-system-bar>
+    <v-app-bar color="deep-purple accent-4"
+      dark
+      prominent:clipped-left="clipped" fixed app>
+      
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
 
@@ -61,12 +81,13 @@ export default {
     return {
       clipped: false,
       drawer: false,
+      group: null,
       fixed: false,
       items: [
         {
           icon: 'mdi-apps',
           title: 'Postagens',
-          to: '/'
+          to: '/postagens'
         },
         {
           icon: 'mdi-image',
@@ -79,6 +100,11 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js'
     }
-  }
+  },
+  watch: {
+      group () {
+        this.drawer = false
+      },
+    }
 }
 </script>

@@ -15,9 +15,9 @@
         <v-img :src="`${photo.url}`" aspect-ratio="1">
         </v-img>
 
-        <v-card-text>
+        <!-- <v-card-text>
           <p>{{photo.url}}</p>
-        </v-card-text>
+        </v-card-text> -->
 
         <v-divider></v-divider>
 
